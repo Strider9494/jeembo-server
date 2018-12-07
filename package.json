@@ -1,0 +1,12 @@
+{
+  "name": "jeemboserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.0"
+  }
+}
