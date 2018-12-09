@@ -1,5 +1,18 @@
 const express = require('express');
-const Joi = require('joi');
+
+const users = require ('./routers/users')
+
+// const marat = new User ({
+//   name: "Marat",
+//   email: "Marat94@gmail.com",
+//   password: hash
+// });
+
+// marat.save ( (err, marat) => {
+//   if (err) return console.error(err);
+//   console.log(marat);
+// })
+// console.log(marat.name);
 
 const app = express();
 
@@ -9,21 +22,7 @@ app.get('/', (req,res) => {
   res.send('Hello World!');
 });
 
-app.post('/jeembo', (req, res) => {
-const schema = {
-  name: Joi.string().min(3).required()
-}
-
-const result = Joi.validate(req.body, schema);
-
-if (result.error) {
-  res.status(400).send(result.error.details[0].message);
-  return
-}
-
-  res.send(req.body);
-});
-
+app.use('/users' , users);
 
 const port = process.env.PORT || 4200;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
