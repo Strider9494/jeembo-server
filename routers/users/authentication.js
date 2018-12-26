@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
   }
 
   const user = await User.findOne({ name: req.body.name});
+  console.log(user);
 
   if(user && bcrypt.compareSync(req.body.password, user.password)) {
     const userParams = {

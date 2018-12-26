@@ -2,18 +2,6 @@ const express = require('express');
 
 const users = require ('./routers/users')
 
-// const marat = new User ({
-//   name: "Marat",
-//   email: "Marat94@gmail.com",
-//   password: hash
-// });
-
-// marat.save ( (err, marat) => {
-//   if (err) return console.error(err);
-//   console.log(marat);
-// })
-// console.log(marat.name);
-
 const app = express();
 
 app.use(express.json());
