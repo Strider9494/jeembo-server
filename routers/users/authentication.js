@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require ('../../database');
 
+const secretKey = '106811';
+
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -28,8 +30,7 @@ router.post('/', async (req, res) => {
       email: user.email,
       id: user._id
     };
-  
-    jwt.sign ({userParams}, 'seсretkey', {expiresIn: '24h'}, (err, token) =>{
+    jwt.sign ({userParams}, secretKey, {expiresIn: '24h'}, (err, token) =>{
       res.json({
         log: true,
         user: user,
