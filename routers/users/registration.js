@@ -1,7 +1,7 @@
 const express = require('express');
 const Joi = require('joi');
 const bcrypt = require('bcryptjs');
-const User = require ('../../database');
+const User = require ('../../database/User');
 
 const router = express.Router();
 const salt = bcrypt.genSaltSync(10);

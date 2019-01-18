@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require ('../../database');
+const User = require ('../../database/User');
 
 const router = express.Router();
 
@@ -13,7 +13,6 @@ router.post('/', async (req,res)=>{
         res.sendStatus(403);
       } else {
         const user = await User.findById(authData.userParams.id);
-        console.log(user);
         const userParams = {
           name: user.name,
           email: user.email,

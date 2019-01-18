@@ -8,13 +8,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
 });
 
-const userSchema = new mongoose.Schema ({
-  name: String,
-  email: String,
-  password: String,
+const postSchema = new mongoose.Schema ({
+  userId: String,
+  title: String,
+  body: String,
   date: {type: Date, default: Date.now}
 })
 
-const User = mongoose.model('User', userSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = User;
+module.exports = Post;
